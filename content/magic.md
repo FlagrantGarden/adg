@@ -26,7 +26,7 @@ Rituals that deal damage deal Adventurer Level x 1d6 damage.
 
 There are three kinds of Ritual: Phrases, Sigils, and Ceremonies.
 
-Phrasess take no time to cast, occur instantly, and fade as soon as they have taken effect.
+Phrases take no time to cast, occur instantly, and fade as soon as they have taken effect.
 
 Sigils take a minute to draw, can be triggered at will or when a certain condition is met, and
 their effects last for ten minutes per Adventurer Level of the caster.

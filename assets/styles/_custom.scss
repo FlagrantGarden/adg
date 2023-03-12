@@ -83,6 +83,7 @@ sl-card.adg-statblock {
     h5,
     h6 {
       margin: 0;
+      padding-right: 0.5rem;
       width: 50%;
     }
   }
@@ -105,5 +106,60 @@ sl-card.adg-statblock {
     padding-bottom: 0;
     padding-right: 0;
     margin: 0;
+  }
+}
+
+.markdown table.sticky {
+  width:max-content;
+  height: 22rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  table-layout: fixed;
+  margin: auto;
+  @include outline;
+
+  thead {
+    width: 100%;
+    background: var(--body-background);
+    position: sticky;
+    inset-block-start: 0;
+
+    /* "top" */
+    tr {
+      width: 100%;
+
+      th:nth-child(odd) {
+        width: 75%;
+      }
+
+      th:nth-child(even) {
+        width: 25%;
+      }
+    }
+  }
+
+  tbody {
+    width: 100%;
+  }
+
+
+  /* Foreground, Background */
+  scrollbar-color: #999 #333;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    /* Mostly for vertical scrollbars */
+    height: 10px;
+    /* Mostly for horizontal scrollbars */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    /* Foreground */
+    background: #999;
+  }
+
+  &::-webkit-scrollbar-track {
+    /* Background */
+    background: #333;
   }
 }

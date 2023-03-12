@@ -41,25 +41,26 @@ adhere to the following terms:
 
 ## Devlog
 
-- _30/01/2023_ - Updated advancement track to bring Recovery Die in line with the game only using
-  d6 and d20 die types. Added a new play report from Nick Spence.
-- _27/01/2023_ - Altered advancement track so that hitting Level 2 has more chance of increasing
-  max health.
-- _21/01/2023_ - Replaced some words in the Ritual generator ("Limerant" becomes "Hungering",
-  removed duplicate of "Hate" and replaced with "Sword"). Clarified the rules around gaining new
-  Scars upon reaching 0 health and added a Dying section to the Violence page.
-- _17/01/2023_ - Added an example of play. Added character sheets (hosted on itch.io).
-- _16/01/2023_ - Added adventuring gear and prices. Updated the rules to cover accessing equipment
-  in combat.
-- _15/01/2023_ - Added new monsters (Crawling Hand, Ghost, Giant Spider, Shadow, Wight) and updated
-  all monsters with # Appearing. Added a list of play reports and 3rd party publications. If you've
-  written anything for A Dungeon Game and want me to list it, drop me an email and let me know
-  about it!
-- _21/11/2022_ - Removed the word "Love" from the Ritual Generator and replaced it with "Swarm".
+- _30/01/2023_ - Updated [advancement track][cl15] to bring Recovery Die in line with the game only
+  using d6 and d20 die types. Added a new play report from Nick Spence.
+- _27/01/2023_ - Altered [advancement track][cl15] so that hitting Level 2 has more chance of
+  increasing max health.
+- _21/01/2023_ - Replaced some words in the [Ritual Generator][cl06] ("Limerant" becomes
+  "Hungering", removed duplicate of "Hate" and replaced with "Sword"). Clarified the rules around
+  gaining new Scars upon reaching 0 health and added a [Dying][cl14] section to the Violence page.
+- _17/01/2023_ - Added an [example of play][cl13]. Added character sheets (hosted on itch.io).
+- _16/01/2023_ - Added [adventuring gear][cl12] and prices. Updated the rules to cover accessing
+  equipment in combat.
+- _15/01/2023_ - Added new monsters ([Crawling Hand][cl07], [Ghost][cl08], [Giant Spider][cl09],
+  [Shadow][cl10], [Wight][cl11]) and updated all monsters with # Appearing. Added a list of play
+  reports and 3rd party publications. If you've written anything for _a dungeon game_ and want me
+  to list it, drop me an email and let me know about it!
+- _21/11/2022_ - Removed the word "Love" from the [Ritual Generator][cl06] and replaced it with
+  "Swarm".
 - _18/11/2022_ - Added missing Surprise/Reactions/Distance, Morale, and Combat Rounds sections to
-  Violence.
-- _17/11/2022_ - Fixed broken link on Doing Things. Added three new monsters: Banshee,
-  Doppleganger, and Kakodemon.
+  [Violence][cl04].
+- _17/11/2022_ - Fixed broken link on Doing Things. Added three new monsters: [Banshee][cl01],
+  [Doppleganger][cl02], and [Kakodemon][cl03].
 
 <!-- Reference Link Definitions -->
 [01]: http://loottheroom.itch.io/
@@ -71,3 +72,17 @@ adhere to the following terms:
 [pr04]: https://cohost.org/NicktheSkeletonKing/post/923515-dungeon23-session-2
 [3p01]: https://cohost.org/NicktheSkeletonKing/post/843025-special-hirelings-fo
 [3p02]: https://cohost.org/NicktheSkeletonKing/post/776641-the-psilocanth
+[cl01]: ./enemies#banshee
+[cl02]: ./enemies#doppleganger
+[cl03]: ./enemies#kakodemon
+[cl04]: ./violence.md
+[cl06]: ./magic.md#ritual-generator
+[cl07]: ./enemies#crawling-hand
+[cl08]: ./enemies#ghost
+[cl09]: ./enemies#giant-spider
+[cl10]: ./enemies#shadow
+[cl11]: ./enemies#wight
+[cl12]: ./equipment.md#adventuring-gear
+[cl13]: ./example-play.md
+[cl14]: ./violence.md#dying
+[cl15]: ./advancement.md
