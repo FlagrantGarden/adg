@@ -30,6 +30,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Upon waking she weeps, and all who hear it who fail to Save are lost forever. Fall down dead, with
 no hope of resurrection.
@@ -42,8 +43,9 @@ HD
 AC
 : 6
 
-No Appearing
+No. Appearing
 : 1d6
+{ .stat-block }
 
 May forego moving to hug for 2d6 damage.
 
@@ -59,8 +61,9 @@ HD
 AC
 : 6
 
-No Appearing
+No. Appearing
 : 1d3
+{ .stat-block }
 
 When the black pudding attacks and misses, reduce the AC of the enemy's armour by 1. If the enemy
 is unarmoured deal 1d3 damage even on failed attacks.
@@ -76,8 +79,9 @@ HD
 AC
 : 3
 
-No Appearing
+No. Appearing
 : 1d6
+{ .stat-block }
 
 Enemies struck by the carrion crawler must make a Brawn saving throw or be paraylsed for 1d6 Rounds.
 
@@ -91,6 +95,7 @@ AC
 
 No. Appearing
 : 1d20
+{ .stat-block }
 
 Crushing grip deals 2d6 damage to enemies wearing light or no armour.
 
@@ -104,6 +109,7 @@ AC
 
 No. Appearing
 : 2d6+1
+{ .stat-block }
 
 Know thyself.
 
@@ -117,6 +123,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Every third Round the dragon exhales. 3d6+HD damage.
 
@@ -132,6 +139,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Invisible until it moves.
 
@@ -147,6 +155,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Can only be harmed by magic weapons or silver. When invisible, AC is 10. Becomes semi-visible to
 attack (AC 0) for one Round.
@@ -165,6 +174,7 @@ AC
 
 No. Appearing
 : 1d6+2
+{ .stat-block }
 
 Never surprised on their webs.
 
@@ -180,6 +190,7 @@ AC
 
 No. Appearing
 : 4d6
+{ .stat-block }
 
 Damage as Weapon.
 
@@ -195,6 +206,7 @@ AC
 
 No. Appearing
 : 2d6
+{ .stat-block }
 
 Damage as Weapon+1d6.
 
@@ -210,6 +222,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Never surprised. Rituals it witnesses being cast fizzle out with no effect. On its go in combat it
 only moves, but it shoots each enemy with its eye beams at the end of their go.
@@ -224,6 +237,7 @@ AC
 
 No. Appearing
 : 1
+{ .stat-block }
 
 Damage 2d6.
 
@@ -240,6 +254,7 @@ AC
 
 No. Appearing
 : 1d3
+{ .stat-block }
 
 Metal weapons deal no damage, turning instantly to rust.
 
@@ -256,6 +271,7 @@ AC
 
 No. Appearing
 : 1d20+1
+{ .stat-block }
 
 Can only be harmed by silver or magic. When struck, Brawn save of lose 1 point of Brawn permanently
 in addition to normal damage.
@@ -267,6 +283,7 @@ HD
 
 AC
 : 5
+{ .stat-block }
 
 Heals 1d6 health each Round it wasn't struck by fire or acid. Each time they reach 0 health and are
 left to recover, gain 1 HD.
@@ -283,6 +300,7 @@ AC
 
 No. Appearing
 : 3d6
+{ .stat-block }
 
 Deals damage directly to Cunning, bypassing health. This damage doesn't recover through rest.
 Characters reduced to 0 Cunning die, rising again as wights under the control of the one who killed

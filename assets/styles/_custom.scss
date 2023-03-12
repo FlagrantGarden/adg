@@ -1,15 +1,55 @@
 .platen-brand {
-    // Make the title logo visible and obvious
-    img {
-      width: 5em;
-      height: 5em;
-      padding: 0%;
-      margin: 0px;
+  // Make the title logo visible and obvious
+  img {
+    width: 5em;
+    height: 5em;
+    padding: 0%;
+    margin: 0px;
+  }
+}
+
+div.platen-menu-content nav>ul:not([class^="platen"]) {
+  // margin-bottom: 1em;
+  margin-top: 2.5em;
+}
+
+ul.columns, ol.columns {
+    -moz-column-count: 2;
+    -moz-column-gap: 2rem;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 2rem;
+    column-count: 2;
+    column-gap: 2rem;
+
+    &.count-3 {
+      -moz-column-count: 3;
+      -webkit-column-count: 3;
+      column-count: 3;
     }
+
+    &.count-4 {
+      -moz-column-count: 4;
+      -webkit-column-count: 4;
+      column-count: 4;
+    }
+}
+
+dl.stat-block {
+  -moz-column-count: 3;
+  -moz-column-gap: 2rem;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 2rem;
+  column-count: 3;
+  column-gap: 2rem;
+  margin: 0 8rem;
+
+  dd {
+    break-before: avoid;
+    text-align: center;
   }
   
-  div.platen-menu-content nav > ul:not([class^="platen"]) {
-    // margin-bottom: 1em;
-    margin-top: 2.5em;
+  dt {
+    margin-top: 0;
+    text-align: center;
   }
-  
+}
