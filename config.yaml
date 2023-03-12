@@ -1,21 +1,21 @@
 # yaml-language-server: $schema=https://platen.io/schemas/config/schema.json
 # Update to your own settings for URL/title
-baseURL: https://platen-template.netlify.app/
-title:   Platen Example
+baseURL: https://a-dungeon-game.netlify.app/
+title:   a dungeon game
 
 module:
   imports:
     - path: github.com/platenio/platen/modules/platen
 
-menu:
-  before:
-    - name: Blog
-      url: /posts
-      weight: 10
-  after:
-    - name: Platen Documentation
-      url: https://platen.io/
-      weight: 10
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    parser:
+      attribute:
+        block: true
+        title: true
 
 params:
-  description: My site description.
+  description: >-
+    A Dungeon Game is a lean tabletop fantasy dungeon crawler that's legally distinct from that
+    other Dungeon game.

@@ -1,1 +1,3 @@
 # yaml-language-server: $schema=https://platen.io/modules/platen/config/site/display/settings/schema.json
+header:
+  title_as_heading: true
