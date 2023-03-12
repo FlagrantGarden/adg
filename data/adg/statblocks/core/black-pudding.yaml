@@ -1,0 +1,10 @@
+name: Black Pudding
+hd: 10
+ac: 6
+appearing: 1d3
+description: |
+  When the black pudding attacks and misses, reduce the AC of the enemy's armour by 1. If the enemy
+  is unarmoured deal 1d3 damage even on failed attacks.
+
+  When struck with slashing or lightning attacks the black pudding divides instead of taking
+  damage. Split its HD among the new puddings.

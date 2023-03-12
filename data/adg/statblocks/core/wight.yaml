@@ -1,0 +1,8 @@
+name: Wight
+hd: 4
+ac: 5
+appearing: 3d6
+description: |
+  Deals damage directly to Cunning, bypassing health. This damage doesn't recover through rest.
+  Characters reduced to 0 Cunning die, rising again as wights under the control of the one who
+  killed them in 1d6 days.

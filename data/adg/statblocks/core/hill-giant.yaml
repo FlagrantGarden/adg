@@ -1,0 +1,8 @@
+name: Hill Giant
+hd: 12
+ac: as Armour
+appearing: 2d6
+description: |
+  Damage as Weapon+1d6.
+
+  2-in-6 chance they catch missiles, returning them to their point of origin.

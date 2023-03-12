@@ -1,0 +1,10 @@
+name: Bear
+hd: 6
+ac: 6
+appearing: 1d6
+description: |
+  May forego moving to hug for 2d6 damage.
+
+  Bears will continue to fight beyond the point of mortal damage. At the end of a Round in which
+  the bear took damage and has 0 health, roll equal to or under HD on 1d20. On a success, the bear
+  continues fighting.
