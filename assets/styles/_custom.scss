@@ -1,0 +1,15 @@
+.platen-brand {
+    // Make the title logo visible and obvious
+    img {
+      width: 5em;
+      height: 5em;
+      padding: 0%;
+      margin: 0px;
+    }
+  }
+  
+  div.platen-menu-content nav > ul:not([class^="platen"]) {
+    // margin-bottom: 1em;
+    margin-top: 2.5em;
+  }
+  
