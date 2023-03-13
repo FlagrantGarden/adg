@@ -9,3 +9,9 @@ adg_ritual_generator:
   partials:
     renderers:
       codeblock: adg/markup/ritualGenerator/codeblock
+adg_chargen:
+  enabled: true
+  partials:
+    header: adg/markup/chargen/header
+    renderers:
+      codeblock: adg/markup/chargen/codeblock

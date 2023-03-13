@@ -17,5 +17,5 @@
 {{- $attributes  = delimit $attributes " " | safeHTMLAttr -}}
 <sl-tooltip x-data="{{ $Data | jsonify }}" x-on:sl-show="{{ $Action }}" {{ $attributes }}>
     <div slot="content">{{ $Ritual }}</div>
-    <sl-button size="large" pill>Generate a Random Ritual</sl-button>
+    <sl-button size="large" pill @click="console.log('click!')">Generate a Random Ritual</sl-button>
 </sl-tooltip>

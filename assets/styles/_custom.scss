@@ -61,6 +61,405 @@ dl.stat-block {
   }
 }
 
+sl-card.adg-generator {
+  width: 100%;
+  $dual-column-breakpoint: 28rem;
+  $quad-column-breakpoint: $dual-column-breakpoint +22rem;
+  $wide-dual-column-breakpoint: $mobile-breakpoint +15rem;
+  $wide-quad-column-breakpoint: $wide-dual-column-breakpoint +10rem;
+
+  sl-button-group[label="Generator Options"] {
+    width: 100%;
+
+    &::part(base) {
+      width: 100%;
+      display: grid;
+      gap: 0rem;
+    }
+
+    sl-dropdown {
+      min-width: 170px;
+
+      sl-button {
+        width: 100%;
+      }
+    }
+
+    sl-button {
+      min-width: 170px;
+    }
+
+    @media screen and (min-width:$dual-column-breakpoint) and (max-width: $quad-column-breakpoint) {
+      &::part(base) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: $quad-column-breakpoint) and (max-width: $mobile-breakpoint) {
+      &::part(base) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media screen and (min-width:$wide-dual-column-breakpoint) and (max-width: $wide-quad-column-breakpoint) {
+      &::part(base) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (min-width: $wide-quad-column-breakpoint) {
+      &::part(base) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+
+  div.adg-attributes {
+    float: left;
+    width: 100px;
+
+    sl-input {
+      width: 100%;
+      padding-right: 1rem;
+    }
+
+    @media screen and (max-width:$dual-column-breakpoint) {
+      width: 90px;
+    }
+  }
+
+  sl-menu.adg-attributes {
+    white-space: nowrap;
+    overflow: hidden;
+
+    sl-menu-label {
+      text-align: center;
+    }
+
+    sl-menu-item::part(label) {
+      width: 100%;
+    }
+
+    sl-menu-item.adg-attributes-roll {
+      &::part(base) {
+        align-items: center;
+        justify-content: center;
+      }
+      &::part(label) {
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+      }
+    }
+
+    sl-menu-item.adg-swap::part(label) {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+    }
+    sl-icon {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    span {
+      width: 60px;
+      text-align: center;
+    }
+  }
+
+  div.adg-rollable {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    clear: both;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+
+    div {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+
+      sl-input,
+      sl-select {
+        --label-width: 10rem;
+        --gap-width: 1rem;
+        display: flex;
+        flex: 4 400px;
+
+        &::part(form-control) {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: flex-start;
+          flex: 4 400px;
+          margin-right: 1rem;
+        }
+
+        &::part(form-control-input) {
+          margin-left: 0.5rem;
+          min-width: min-content;
+          flex: 5 1;
+        }
+
+        &::part(form-control-label) {
+          text-align: right;
+          flex: 1 2 8rem;
+        }
+      }
+
+      sl-button {
+        flex: 1 160px;
+      }
+
+      @media screen and (max-width:$dual-column-breakpoint) {
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        sl-input,
+        sl-select {
+          flex: 1 auto;
+          --label-width: 2rem;
+          width: 100%;
+
+          &::part(form-control) {
+            flex-flow: column;
+            justify-content: flex-start;
+            flex: 1 auto;
+            margin-right: 0;
+            width: 100%;
+          }
+
+          &::part(form-control-input) {
+            margin-left: 0;
+            width: 100%;
+            flex: 1 auto;
+          }
+
+          &::part(form-control-label) {
+            text-align: center;
+            width: 100%;
+            flex: 1 1 1rem;
+          }
+        }
+
+        sl-button {
+          width: 100%;
+          flex: 1 2rem;
+        }
+      }
+    }
+  }
+
+  .adg-scars {
+    display: flex;
+    clear: both;
+    width: 100%;
+    flex-flow: column;
+
+    >div {
+      display: flex;
+      flex-flow: row;
+      flex: 4 auto;
+      align-items: stretch;
+      align-content: stretch;
+      justify-content: space-between;
+
+      sl-textarea {
+        margin-right: 1rem;
+        flex: 4 400px;
+      }
+
+      sl-button-group {
+        flex: 1 160px;
+      }
+    }
+
+    sl-details.new {
+      &::part(content) {
+        padding: 0;
+      }
+
+      &[open]::part(summary) {
+        color: var(--sl-color-danger-500);
+      }
+
+      ul,
+      li,
+      sl-button {
+        width: 100%;
+      }
+
+      ul {
+        list-style-type: none;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+
+        li {
+          padding-bottom: 0.5rem;
+        }
+      }
+
+      sl-button {
+        height: auto;
+        white-space: normal;
+
+        &::part(base) {
+          height: auto;
+        }
+
+        &::part(label) {
+          height: auto;
+          white-space: normal;
+          text-align: left;
+          line-height: normal;
+          width: 100%;
+          color: var(--sl-color-neutral-600);
+
+          &:hover {
+            color: var(--sl-color-danger-500);
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width:$dual-column-breakpoint) {
+      >div {
+        flex-flow: column;
+
+        sl-textarea {
+          width: 100%;
+          flex: 1 1;
+        }
+
+        sl-button-group {
+          width: 100%;
+          flex: 1 1;
+
+          >sl-button {
+            flex: 4 160px;
+          }
+
+          sl-button[slot="trigger"] {
+            flex: 1 60px;
+
+            &::part(base) {
+              min-width: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .adg-rituals {
+    position: relative;
+    div.ritual-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    >sl-card {
+      margin-top: 1rem;
+
+      sl-checkbox {
+        width: 100%;
+      }
+
+      sl-checkbox::part(base) {
+        width: 100%;
+      }
+    }
+
+    sl-drawer {
+      sl-button-group {
+        width: 100%;
+
+        &::part(base) {
+          width: 100%;
+          display: grid;
+          gap: 0.1rem;
+        }
+
+        sl-button {
+          min-width: 170px;
+        }
+
+        @media screen and (min-width:$dual-column-breakpoint) and (max-width: $quad-column-breakpoint) {
+          &::part(base) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media screen and (min-width: $quad-column-breakpoint) and (max-width: $mobile-breakpoint) {
+          &::part(base) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
+        @media screen and (min-width:$wide-dual-column-breakpoint) and (max-width: $wide-quad-column-breakpoint) {
+          &::part(base) {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media screen and (min-width: $wide-quad-column-breakpoint) {
+          &::part(base) {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+      }
+    }
+    sl-dialog {
+      --width: 100%;
+      height: 100%;
+      &::part(close-button) {
+          display: none;
+      }
+    }
+  }
+
+  .adg-extras {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div + span {
+      margin-top: 1rem;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+.adg-full-width {
+  width: 100%;
+}
+
+.adg-borderless {
+  --border-width: 0;
+}
+
+.adg-center-header {
+  &::part(header) {
+    text-align: center;
+  }
+}
+
+.adg-center-body {
+  &::part(body) {
+    text-align: center;
+  }
+}
+
 sl-card.adg-statblock {
   width: 100%;
   margin-top: 1rem;
@@ -169,4 +568,48 @@ sl-card.adg-statblock {
 
 sl-tooltip.adg-ritual-generator {
   --sl-tooltip-arrow-size: 0;
+}
+
+@media print {
+  sl-card.adg-generator {
+    display: none;
+  }
+
+  article.adg-character-display {
+    visibility: visible;
+
+    h1 {
+      text-align: center;
+    }
+
+    dl {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      div.adg-dl-sxs {
+        flex: 1 1 auto;
+
+        dt {
+          width: 5rem;
+        }
+      }
+
+      dt.dl-full {
+        flex: 1 100%;
+        text-align: center;
+
+        &+dd {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media screen {
+  article.adg-character-display {
+    visibility: hidden;
+  }
 }
