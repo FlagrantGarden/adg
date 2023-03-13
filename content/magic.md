@@ -40,6 +40,10 @@ Rituals are made up of three parts - the Ritual Type and two words that are comb
 Ritual's effect. Interpret your spells as you see fit and put them to creative use. You've paid the
 price to learn them; now they work for you.
 
+```adg_ritual_generator
+data_path: core
+```
+
 ### 1d3 - Ritual Type
 
 1. Phrase
@@ -47,7 +51,7 @@ price to learn them; now they work for you.
 1. Ceremony
 { .columns .count-3 }
 
-### 1d20 - Word 1
+### 1d20 - Descriptor
 
 1. Hungering
 1. Entropic
@@ -71,7 +75,7 @@ price to learn them; now they work for you.
 1. Combusting
 { .columns .count-4 }
 
-### 1d20 - Word 2
+### 1d20 - Noun
 
 1. Death
 1. Life

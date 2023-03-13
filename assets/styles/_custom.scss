@@ -110,7 +110,7 @@ sl-card.adg-statblock {
 }
 
 .markdown table.sticky {
-  width:max-content;
+  width: max-content;
   height: 22rem;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -162,4 +162,8 @@ sl-card.adg-statblock {
     /* Background */
     background: #333;
   }
+}
+
+sl-tooltip.adg-ritual-generator {
+  --sl-tooltip-arrow-size: 0;
 }

@@ -41,7 +41,7 @@
   {{- end -}}
 
   {{- with $data -}}
-    {{- $renderedCode = partial $Template $data -}}
+    {{- $renderedCode = partialCached $Template $data $data -}}
   {{- end -}}
 
 {{- end -}}

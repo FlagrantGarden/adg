@@ -4,3 +4,8 @@ adg_stat_block:
   partials:
     renderers:
       codeblock: adg/markup/statblock/codeblock
+adg_ritual_generator:
+  enabled: true
+  partials:
+    renderers:
+      codeblock: adg/markup/ritualGenerator/codeblock
