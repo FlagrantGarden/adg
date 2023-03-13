@@ -24,9 +24,9 @@ the difference between your failed roll and your Cunning score to your roll.
 
 Rituals that deal damage deal Adventurer Level x 1d6 damage.
 
-There are three kinds of Ritual: Phrasess, Sigils, and Ceremonies.
+There are three kinds of Ritual: Phrases, Sigils, and Ceremonies.
 
-Phrasess take no time to cast, occur instantly, and fade as soon as they have taken effect.
+Phrases take no time to cast, occur instantly, and fade as soon as they have taken effect.
 
 Sigils take a minute to draw, can be triggered at will or when a certain condition is met, and
 their effects last for ten minutes per Adventurer Level of the caster.
@@ -40,16 +40,19 @@ Rituals are made up of three parts - the Ritual Type and two words that are comb
 Ritual's effect. Interpret your spells as you see fit and put them to creative use. You've paid the
 price to learn them; now they work for you.
 
+```adg_ritual_generator
+data_path: core
+```
+
 ### 1d3 - Ritual Type
 
 1. Phrase
 1. Sigil
 1. Ceremony
+{ .columns .count-3 }
 
-### 1d20 - Word 1
+### 1d20 - Descriptor
 
-````columns { #ritual-word-one }
-```column
 1. Hungering
 1. Entropic
 1. Corrupting
@@ -60,9 +63,6 @@ price to learn them; now they work for you.
 1. Desecrating
 1. Summoning
 1. Sloughing
-```
-
-```column
 1. Rambling
 1. Creating
 1. Imbibing
@@ -73,14 +73,10 @@ price to learn them; now they work for you.
 1. Revealing
 1. Lingering
 1. Combusting
-{ start="11" }
-```
-````
+{ .columns .count-4 }
 
-### 1d20 - Word 2
+### 1d20 - Noun
 
-````columns { #ritual-word-two }
-```column
 1. Death
 1. Life
 1. Swarm
@@ -91,9 +87,6 @@ price to learn them; now they work for you.
 1. Noise
 1. Violence
 1. Peace
-```
-
-```column
 1. Bears
 1. Abominations
 1. Flesh
@@ -104,9 +97,7 @@ price to learn them; now they work for you.
 1. Stone
 1. Grief
 1. Sword
-{ start="11" }
-```
-````
+{ .columns .count-4 }
 
 ## Mishaps
 

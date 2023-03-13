@@ -1,0 +1,7 @@
+name: Carrion Crawler
+hd: 3
+ac: 3
+appearing: 1d6
+description: |
+  Enemies struck by the carrion crawler must make a Brawn saving throw or be paraylsed for 1d6
+  Rounds.

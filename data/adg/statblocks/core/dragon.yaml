@@ -1,0 +1,8 @@
+name: Dragon
+hd: 10+
+ac: as HD
+appearing: 1
+description: |
+  Every third Round the dragon exhales. 3d6+HD damage.
+
+  Vain and greedy, a dragon is always open to offers of great wealth in exchange for mercy.

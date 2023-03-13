@@ -1,0 +1,8 @@
+name: Gelatinous Cube
+hd: 4
+ac: 3
+appearing: 1
+description: |
+  Invisible until it moves.
+
+  Those consumed are paralysed.

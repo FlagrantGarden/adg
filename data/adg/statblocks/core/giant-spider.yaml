@@ -1,0 +1,8 @@
+name: Giant Spider
+hd: 3
+ac: 5
+appearing: 1d6+2
+description: |
+  Never surprised on their webs.
+
+  Attacks twice per Round.

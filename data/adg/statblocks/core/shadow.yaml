@@ -1,0 +1,7 @@
+name: Shadow
+hd: 3
+ac: 7
+appearing: 1d20+1
+description: |
+  Can only be harmed by silver or magic. When struck, Brawn save of lose 1 point of Brawn
+  permanently in addition to normal damage.

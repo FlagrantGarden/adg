@@ -14,8 +14,14 @@ markup:
       attribute:
         block: true
         title: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: true
 
 params:
   description: >-
     A Dungeon Game is a lean tabletop fantasy dungeon crawler that's legally distinct from that
     other Dungeon game.
+  images:
+    - site-feature-image.png

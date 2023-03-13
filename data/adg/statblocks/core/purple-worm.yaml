@@ -1,0 +1,9 @@
+name: Purple Worm
+hd: 15
+ac: 7
+appearing: 1
+description: |
+  Damage 2d6.
+
+  When it deals 8 or more damage it swallows its foe. A swallowed creature dies in 1d6 Rounds and
+  digested in 1d6 hours. Death in this manner prevents being raised from the dead.

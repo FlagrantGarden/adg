@@ -59,6 +59,7 @@ You always roll with advantage when performing tasks related to your vocation.
 1. Trapper
 1. Undertaker
 1. Weaver
+{ .columns .count-4 }
 
 ## Choose Scars
 
@@ -71,8 +72,9 @@ not to dwell on the past.
 Once per initiative round when you make a roll in combat you may modify it by +/- X, where X is the
 number of Scars you possess.
 
-### Head
-
+<!-- markdownlint-disable MD013-->
+``````tabs {#scar-tables}
+```tab { name="1. Head" }
 |  d66  |                                                        Scar Description                                                        |
 | :---: | :----------------------------------------------------------------------------------------------------------------------------- |
 |  1-1  | The tip of one of your ears is hacked off.                                                                                     |
@@ -81,9 +83,9 @@ number of Scars you possess.
 |  1-4  | There's no physical sign that you were injured, but you've become prone to apocalyptic headaches that come on without warning. |
 |  1-5  | The dome of your head is visibly mis-shapen, and helmets don't fit like they used to.                                          |
 |  1-6  | Hair only grows on one side of your head now. The other side is knotted with scar tissue.                                      |
+```
 
-### Face
-
+```tab { name="2. Face" }
 |  d66  |                                                                                 Scar Description                                                                                  |
 | :---: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  2-1  | A broken tooth pierced your lip. Your mouth is crooked and your lip is permanently a little swollen.                                                                              |
@@ -92,9 +94,9 @@ number of Scars you possess.
 |  2-4  | The blow shattered your orbital bone, leaving your eye hanging out of your skull. The bones didn't set quite right and your eye is visibly lower in your face than it used to be. |
 |  2-5  | Your nose oozes a small trickle of blood constantly.                                                                                                                              |
 |  2-6  | One of your cheeks is noticeably lower than the other, with a visible lump where the bone didn't set properly.                                                                    |
+```
 
-### Arms
-
+```tab { name="3. Arms" }
 |  d66  |                                                                                      Scar Description                                                                                      |
 | :---: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  3-1  | You fractured your shoulder socket. The joint sometimes catches so your arm locks in place and has to be forced back into motion, often painfully. The joint grinds audibly when it moves. |
@@ -103,9 +105,9 @@ number of Scars you possess.
 |  3-4  | Your arm hung limp by your side for so long before you set it and healed that your shoulder now sits a little lower than its opposite number.                                              |
 |  3-5  | Elbows are made to bend, and that's a good thing because yours will never be able to extend fully again.                                                                                   |
 |  3-6  | Your arm is twisted so that when you stand the back of your hand sits at a right angle to your body, the thumb parallel to your thigh.                                                     |
+```
 
-### Hands
-
+```tab { name="4. Hands" }
 |  d66  |                                                              Scar Description                                                              |
 | :---: | :----------------------------------------------------------------------------------------------------------------------------------------- |
 |  4-1  | You lose the tip of one of your fingers, just below the nail.                                                                              |
@@ -114,9 +116,9 @@ number of Scars you possess.
 |  4-4  | The skin of your hand is boiled and charred, like meat left on the fire for too long.                                                      |
 |  4-5  | The veins in the back of your hand are thick and black like they carry an infection.                                                       |
 |  4-6  | Pick your favourite finger and say goodbye to it. It's gone now.                                                                           |
+```
 
-### Legs
-
+```tab { name="5. Legs" }
 |  d66  |                                                     Scar Description                                                      |
 | :---: | :------------------------------------------------------------------------------------------------------------------------ |
 |  5-1  | The bones in your leg were shattered beyond complete repair. That leg will always be fractionally shorter than the other. |
@@ -125,9 +127,9 @@ number of Scars you possess.
 |  5-4  | You lose a foot, forever. Find something to replace it with.                                                              |
 |  5-5  | Your kneecap is shattered, leaving free-floating chunks of bone just beneath your skin.                                   |
 |  5-6  | Your ankle is crushed, and heals with a large, visible lump.                                                              |
+```
 
-### Torso
-
+```tab { name="6. Torso" }
 |  d66  |                                                                         Scar Description                                                                         |
 | :---: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |  6-1  | Your chest is visibly concave, the result of poorly-set broken ribs.                                                                                             |
@@ -136,6 +138,9 @@ number of Scars you possess.
 |  6-4  | A thick knot of scar tissue runs down the center of your chest, as though you have been zipped up.                                                               |
 |  6-5  | Your stomach was split open and poorly stitched, and now you have no visible belly button.                                                                       |
 |  6-6  | After breaking all of your ribs on one side, a metal plate was grafted onto your bones. It shines through the hole in your missing flesh.                        |
+```
+``````
+<!-- markdownlint-enable MD013-->
 
 ## Learn Rituals (Optional)
 

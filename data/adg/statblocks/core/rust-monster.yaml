@@ -1,0 +1,9 @@
+name: Rust Monster
+hd: 5
+ac: 9
+appearing: 1d3
+description: |
+  Metal weapons deal no damage, turning instantly to rust.
+
+  When the rust monster attacks, reduce the AC of the enemy's armour by 1 unless the rust monster
+  rolled over its Attack. If it rolls exactly the enemy's AC, reduce it by 2.

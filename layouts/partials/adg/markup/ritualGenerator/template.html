@@ -1,0 +1,21 @@
+{{- $Data       := merge . (dict "chosen" (dict "type" "" "descriptor" "" "noun" "")) -}}
+{{- $Template   := "chosen.%s = %s[Math.floor(Math.random() * %s.length)]"         -}}
+{{- $Actions    := slice (printf $Template "type"       "types"       "types")
+                         (printf $Template "descriptor" "descriptors" "descriptors")
+                         (printf $Template "noun"       "nouns"       "nouns")
+-}}
+{{- $Action     := delimit $Actions ";"                                  -}}
+{{- $Type       := `<span x-text="chosen.type"></span>`                  -}}
+{{- $Descriptor := `<span x-text="chosen.descriptor"></span>`            -}}
+{{- $Noun       := `<span x-text="chosen.noun"></span>`                  -}}
+{{- $Ritual     := printf "%s: %s %s" $Type $Descriptor $Noun | safeHTML -}}
+{{- $attributes := slice `class="adg-ritual-generator"`
+                         `trigger="click"`
+                         `placement="right"`
+                         "hoist"
+-}}
+{{- $attributes  = delimit $attributes " " | safeHTMLAttr -}}
+<sl-tooltip x-data="{{ $Data | jsonify }}" x-on:sl-show="{{ $Action }}" {{ $attributes }}>
+    <div slot="content">{{ $Ritual }}</div>
+    <sl-button size="large" pill>Generate a Random Ritual</sl-button>
+</sl-tooltip>

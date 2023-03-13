@@ -1,0 +1,11 @@
+name: Ghost
+hd: 10
+ac: 10/0
+appearing: 1
+description: |
+  Can only be harmed by magic weapons or silver. When invisible, AC is 10. Becomes semi-visible to
+  attack (AC 0) for one Round.
+
+  When struck by a ghost, age 1d3x10 years instantly.
+
+  While invisible the ghost can attempt to possess creatures it can see. Cunning save to resist.

@@ -1,0 +1,9 @@
+name: Troll
+hd: 6
+ac: 5
+appearing: 2d6-1
+description: |
+  Heals 1d6 health each Round it wasn't struck by fire or acid. Each time they reach 0 health and
+  are left to recover, gain 1 HD.
+
+  Roll Morale immediately if it sees fire.

@@ -15,37 +15,23 @@ The standard unit of currency is the silver piece (sp), which may be broken into
 
 ## Melee Weapons
 
-_Small._ 4sp. 1d6-1 damage. Ignores armour when enemies are prone.
-
-_Medium._ 8sp. 1d6 damage.
-
-_Large._ 12sp. 1d6 damage with advantage. +2 to initiative.
+- _Small._ 4sp. 1d6-1 damage. Ignores armour when enemies are prone.
+- _Medium._ 8sp. 1d6 damage.
+- _Large._ 12sp. 1d6 damage with advantage. +2 to initiative.
 
 ## Ranged Weapons
 
-_Small._ 4sp. 1d6-1 damage. -2 to initiative.
-
-_Medium._ 8sp. 1d6 damage.
-
-_Large._ 12sp. 1d6 damage with advantage. Ignores armour.
-
-Reloading a small ranged weapon is a free action.
-
-Reloading a medium ranged weapon takes a move action.
-
-Reloading a large ranged weapon takes an entire round.
+- _Small._ 4sp. 1d6-1 damage. -2 to initiative. Reloading is a free action.
+- _Medium._ 8sp. 1d6 damage. Reloading is a move action.
+- _Large._ 12sp. 1d6 damage with advantage. Ignores armour. Reloading takes an entire round.
 
 ## Armour and Shields
 
-_Light._ 30sp. AC 3.
-
-_Medium._ 50sp. AC 5.
-
-_Heavy._ 80sp. AC 7.
-
-_Shield._ 15sp. +1 AC.
-
-_Helmet._ 10sp. Can be sacrificed to negate a single damage roll.
+- _Light._ 30sp. AC 3.
+- _Medium._ 50sp. AC 5.
+- _Heavy._ 80sp. AC 7.
+- _Shield._ 15sp. +1 AC.
+- _Helmet._ 10sp. Can be sacrificed to negate a single damage roll.
 
 Unarmoured characters have AC 0.
 
@@ -75,11 +61,11 @@ adventures.
 | :--------------------- | ---: |
 | Backpack               |  2sp |
 | Bell                   |  1sp |
-| Belt pouch*            |  1sp |
+| Belt pouch †           |  1sp |
 | Birdcage               |  5cp |
 | Block and tackle       |  5sp |
 | Bucket                 |  5cp |
-| Chain (per ft.)**      |  3sp |
+| Chain (per ft.) ‡      |  3sp |
 | Canvas (per sq. yard)  |  1sp |
 | Chalk                  |  1cp |
 | Crampons               |  4sp |
@@ -109,13 +95,15 @@ adventures.
 | Signal whistle         |  8cp |
 | Soap (per lb.)         |  5cp |
 | Spyglass               | 20gp |
-| Tent***                |  5sp |
+| Tent §                 |  5sp |
+{ .sticky }
 
-\* Can store one item, which can be accessed instantly in combat as though you rolled exactly your Cunning.
+**†** A belt pouch can store one item, which can be accessed instantly in combat as though you rolled
+exactly your Cunning.
 
-** Every 5 feet of chain carried uses one inventory slot.
+**‡** Every 5 feet of chain carried uses one inventory slot.
 
-*** Sleeps two people.
+**§** A tent sleeps two people.
 
 ## Hirelings
 

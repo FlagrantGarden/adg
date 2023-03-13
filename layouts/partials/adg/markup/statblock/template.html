@@ -1,0 +1,26 @@
+{{- $Data := . -}}
+{{- $stats := dict -}}
+{{- $level := 2 -}}
+{{- with $Data.Stats -}}
+    {{- $stats = .                            -}}
+    {{- $level = $Data.Level | default $level -}}
+{{- else -}}
+    {{- $stats = $Data -}}
+{{- end -}}
+{{- $ID := $stats.name | urlize | safeHTMLAttr }}
+<sl-card class="adg-statblock" >
+    <div slot="header">
+        <h{{ print $level | safeHTML }} id="{{ $ID }}">{{ $stats.name }}</h3>
+        <dl class="stat-block">
+            <dt>HD</dt>
+            <dd>{{ $stats.hd }}</dd>
+            <dt>AC</dt>
+            <dd>{{ $stats.ac }}</dd>
+        </dl>
+    </div>
+    {{ $stats.description | page.RenderString (dict "display" "block") -}}
+    <dl slot="footer">
+        <dt>No. Appearing</dt>
+        <dd>{{ $stats.appearing }}</dd>
+    </dl>
+</sl-card>
