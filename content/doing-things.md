@@ -38,11 +38,17 @@ under the appropriate attribute but over the enemy's HD.
 
 ## Exertion
 
-After failing a roll you can choose to exert yourself in order to succeed. Subtract your attribute
-from the result of your roll. Reduce your attribute by this number permanently and treat the roll
+After failing a roll you can choose to exert yourself in order to succeed.
+
+**If rolled over your attribute:** Subtract your attribute from the result of
+your roll. Reduce your attribute by this number permanently and treat the roll
 as a success.
 
-You can't exert yourself on saving throws.
+**If you rolled under you enemy's AC in combat:** Subtract your attribute from
+the result of your roll. Reduce your attribute by this number permanently and
+treat the roll as a success.
+
+You can't exert yourself on Saving Throws.
 
 ## Resting
 

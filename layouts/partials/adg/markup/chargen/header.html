@@ -1,0 +1,23 @@
+{{- $Context          := .                                     -}}
+{{- $IntegrityPartial := "platen/utils/getIntegrityAttributes" -}}
+{{- $loadChargen      := $Context.Store.Get "_hasAdgChargen"   -}}
+
+{{- if $loadChargen -}}
+  {{/* Initialize the slice of strings to render */}}
+  {{- $renderStrings := slice -}}
+
+  {{/* Get the Dungeon Game Chargen library script */}}
+  {{- $library           := resources.Get "scripts/adg/chargen.js"
+      | resources.Fingerprint
+  -}}
+  {{- $libraryIntegrity  := partialCached $IntegrityPartial $library "AdgChargen" -}}
+  {{- $libraryAttributes := slice (printf `src="%s"` $library.RelPermalink)
+      | append $libraryIntegrity
+  -}}
+  {{- $libraryAttributes  = delimit $libraryAttributes " "                   -}}
+  {{- $library           := printf "<script %s></script>" $libraryAttributes -}}
+  {{- $renderStrings      = $renderStrings | append $library                 -}}
+
+  {{/* Render */}}
+  {{- delimit $renderStrings "\n" | safeHTML -}}
+{{- end }}

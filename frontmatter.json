@@ -5,5 +5,14 @@
   ],
   "frontMatter.site.baseURL": "https://a-dungeon-game.netlify.app",
   "frontMatter.taxonomy.tags": [],
-  "frontMatter.taxonomy.categories": []
+  "frontMatter.taxonomy.categories": [],
+  "frontMatter.content.pageFolders": [
+    {
+      "name": "content",
+      "title": "Content",
+      "$schema": "https://beta.frontmatter.codes/config/content.pagefolders.schema.json",
+      "path": "[[workspace]]/content",
+      "originalPath": "[[workspace]]/content"
+    }
+  ]
 }

@@ -1,0 +1,297 @@
+{{- $data      := . -}}
+{{- $Character := dict "brawn"      nil
+                       "agility"    nil
+                       "cunning"    nil
+                       "health"     nil
+                       "wealth"     nil
+                       "rituals"    (slice)
+                       "extra"      nil
+                       "occupation" (slice)
+                       "scar"       nil
+-}}
+{{- $data = merge $data (dict
+                         "character" $Character
+                         "reset_character" nil
+                         "has_rituals" false
+                         "character_ready" false
+  )
+-}}
+
+{{/*  Grab the scar areas for easier use elsewhere  */}}
+{{- $scarAreas  := slice -}}
+{{- range $scar := $data.scars -}}
+  {{- if not (in $scarAreas $scar.area) -}}
+    {{- $scarAreas = $scarAreas | append $scar.area -}}
+  {{- end -}}
+{{- end -}}
+{{- $scarAreas = dict "scarAreas" $scarAreas -}}
+
+{{/*  Assemble here to keep the spaces without janky HTML  */}}
+{{- $RitualAlertMessage := delimit (
+      slice `Paid <span x-text="temp_ritual.cost"></span>`
+            `from <span x-text="temp_ritual.from"></span>`
+            `to learn the <span x-text="getLastRitual($data)"></span>`
+    ) " " | print
+-}}
+
+<div x-data="{{ $data | jsonify }}">
+  <sl-card class="adg-generator">
+    <sl-button-group label="Generator Options">
+      <sl-button @click="generateCharacter($data, $refs)" x-ref="menu_generate">
+        Generate Adventurer
+      </sl-button>
+      <sl-button @click="resetCharacter($data, $refs)" x-ref="menu_clear">
+        Clear Adventurer
+      </sl-button>
+      <sl-dropdown hoist placement="bottom-end" x-ref="menu_import" disabled>
+        <sl-button slot="trigger" caret disabled>Import Adventurer</sl-button>
+        <sl-menu>
+          <sl-menu-item disabled>From JSON</sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+      <sl-dropdown hoist placement="bottom-end" x-ref="menu_export" :disabled="characterReady($data) == false">
+        <sl-button slot="trigger" caret :disabled="characterReady($data) == false">Export Adventurer</sl-button>
+        <sl-menu>
+          <sl-menu-item @click="window.print()">
+            To Print / PDF
+          </sl-menu-item>
+          <sl-menu-item @click="exportCharacter($data)">
+            To Data / JSON
+          </sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+    </sl-button-group>
+    <form>
+      <fieldset>
+        <legend>Attributes</legend>
+        <div class="adg-attributes">
+          <sl-input type="number"
+                    placeholder="3d6"
+                    label="Agility"
+                    name="agility"
+                    x-model.number.fill="character.agility"
+                    x-ref="input_agility"
+          ></sl-input>
+          <sl-input type="number"
+                    placeholder="3d6"
+                    label="Brawn"
+                    name="brawn"
+                    x-model.number="character.brawn"
+                    x-ref="input_brawn"
+          ></sl-input>
+          <sl-input type="number"
+                    placeholder="3d6"
+                    label="Cunning"
+                    name="cunning"
+                    x-model.number="character.cunning"
+                    x-ref="input_cunning"
+          ></sl-input>
+        </div>
+        <sl-menu class="adg-attributes">
+          <sl-menu-item class="adg-attributes-roll" @click="rollAttributes($data, $refs)">
+            <sl-icon slot="prefix" name="dice-6"></sl-icon>
+            Roll All
+          </sl-menu-item>
+          <sl-divider></sl-divider>
+          <sl-menu-label>Swap an Attribute Pair</sl-menu-label>
+          <sl-menu-item class="adg-swap" @click="swapAttribute('agility', 'brawn', $data, $refs)">
+            <span>Agility</span>
+            <sl-icon name="arrow-left-right"></sl-icon>
+            <span>Brawn</span>
+          </sl-menu-item>
+          <sl-menu-item class="adg-swap" @click="swapAttribute('brawn', 'cunning', $data, $refs)">
+            <span>Brawn</span>
+            <sl-icon name="arrow-left-right"></sl-icon>
+            <span>Cunning</span>
+          </sl-menu-item>
+          <sl-menu-item class="adg-swap" @click="swapAttribute('cunning', 'agility', $data, $refs)">
+            <span>Cunning</span>
+            <sl-icon name="arrow-left-right"></sl-icon>
+            <span>Agility</span>
+          </sl-menu-item>
+        </sl-menu>
+      </fieldset>
+      <div class="adg-rollable">
+        <div>
+          <sl-input type="number"
+                    placeholder="1d6 + ½ Brawn"
+                    name="health"
+                    label="Starting Health"
+                    x-model.number.fill="character.health"
+                    x-ref="input_health"
+          ></sl-input>
+          <sl-button @click="rollHealth($data, $refs)" disabled x-effect="toggleHealthButton($data, $el)">
+            <sl-icon slot="prefix" name="dice-6"></sl-icon>
+            Roll Health
+          </sl-button>
+        </div>
+        <div>
+          <sl-input type="number"
+                    placeholder="2d6 &times; 10sp"
+                    name="wealth"
+                    label="Starting Wealth"
+                    x-model.number.fill="character.wealth"
+                    x-ref="input_wealth"
+          ></sl-input>
+          <sl-button @click="rollWealth($data, $refs)">
+            <sl-icon slot="prefix" name="dice-6"></sl-icon>
+            Roll Wealth
+          </sl-button>
+        </div>
+        <div>
+          <sl-select label="Occupation"
+                    placeholder="Roll an Occupation"
+                    clearable
+                    x-model="character.occupation"
+                    x-ref="input_occupation">
+            <template x-for="(entry, index) in occupations">
+              <sl-option :value="entry.replace(/\s+/g, '-')">
+                <span slot="prefix" x-text="(index + 1) + '. '"></span>
+                <span x-text="entry"></span>
+              </sl-option>
+            </template>
+          </sl-select>
+          <sl-button @click="rollOccupation($data, $refs)">
+            <sl-icon slot="prefix" name="dice-6"></sl-icon>
+            Roll Occupation
+          </sl-button>
+        </div>
+      </div>
+      <sl-card class="adg-center-header adg-full-width adg-scars" x-data="{{ $scarAreas | jsonify }}">
+        <span slot="header">Gain a Scar</span>
+        <div>
+          <sl-textarea name="scar"
+                      rows="4"
+                      placeholder="Write, select, or roll for your first scar."
+                      x-model="character.scar"
+                      x-ref="input_scar">
+          </sl-textarea>
+          <sl-button-group label="Rolling Scars">
+            <sl-button @click="rollAnyScar($data, $refs)">
+              <sl-icon slot="prefix" name="dice-6"></sl-icon>
+              Roll Scar
+            </sl-button>
+            <sl-dropdown hoist placement="bottom-right">
+              <sl-button slot="trigger" caret>
+                <sl-visually-hidden>Specific Areas</sl-visually-hidden>
+              </sl-button>
+              <sl-menu>
+                <template x-for="area in scarAreas">
+                  <sl-menu-item x-text="area" @click="rollScarForArea($data, $refs)"></sl-menu-item>
+                </template>
+              </sl-menu>
+            </sl-dropdown>
+          </sl-button-group>
+        </div>
+        <sl-details class="new" summary="Select Scar by Location">
+          <template x-for="area in scarAreas">
+            <sl-details  :summary="area + ' Scars'">
+              <ul>
+                <template x-for="scar in scars.filter(scar => scar.area == area)">
+                  <li>
+                    <sl-button variant="text" @click="selectScar($data, $refs)" x-text="scar.description">
+                    </sl-button>
+                  </li>
+                </template>
+              </ul>
+            </sl-details>
+          </template>
+        </sl-details>
+      </sl-card>
+      <sl-card class="adg-center-header adg-full-width adg-rituals">
+        <span slot="header">Learn Rituals (Optional)</span>
+        <p>You can start with as many Rituals as you dare to learn. If you over extend yourself and
+        your health or any attribute reaches 0, your character has died. Make a new one.</p>
+
+        <div class="ritual-button">
+          <sl-button @click="$refs.ritualDrawer.show()" :disabled="ritualDisabled(character)" x-ref="learn_ritual">
+            Learn a new Ritual
+          </sl-button>
+        </div>
+
+        <sl-card x-show="character.rituals.length > 0" class="adg-full-width adg-borderless adg-center-header">
+          <span slot="header">Learned Rituals</span>
+          <template x-for="entry in character.rituals">
+            <sl-checkbox checked disabled x-text="entry.replace('-',' ')"></sl-checkbox>
+          </template>
+        </sl-card>
+
+        <sl-drawer no-header="true" placement="bottom" x-ref="ritualDrawer" contained @sl-show="newRitual(temp_ritual, ritualInfo)">
+          <sl-card class="adg-full-width adg-borderless adg-center-header adg-center-body">
+            <span slot="header">Pay the Cost to learn the <span x-text="temp_ritual.combined"></span></span>
+            <sl-button-group label="PayForRitual" >
+              <sl-button variant="danger" @click="await payRitualCost($data, $refs, 'agility')">
+                In Agility
+              </sl-button>
+              <sl-button variant="danger" @click="await payRitualCost($data, $refs, 'brawn')">
+                In Brawn
+              </sl-button>
+              <sl-button variant="danger" @click="await payRitualCost($data, $refs, 'cunning')">
+                In Cunning
+              </sl-button>
+              <sl-button variant="danger" @click="await payRitualCost($data, $refs, 'health')">
+                In Health
+              </sl-button>
+            </sl-button-group>
+          </sl-card>
+        </sl-drawer>
+
+        <sl-dialog label="Ritual Death" class="dialog-deny-close" x-ref="ritual_death_dialog" @sl-request-close="dialogDenyOverlayClose($event)">
+          <p>Your eldritch reach has exceeded your grasp.</p>
+          <p>
+            Your attempt to learn the <span x-text="getLastRitual($data)"></span>
+            has killed you horribly. Another adventurer will need to take your place.
+          </p>
+          <sl-button slot="footer" variant="primary" @click="closeRitualDeath($data, $refs)">Try Again</sl-button>
+        </sl-dialog>
+      </sl-card>
+
+      <sl-card class="adg-center-header adg-full-width adg-extras">
+        <span slot="header">Gain an Extra</span>
+        <p>Click the button below to finalize your character, gaining a last modifier.</p>
+        <div>
+          <sl-button @click="rollExtra($data, $refs)" :disabled="character.extra != null">
+            Roll for Extra
+          </sl-button>
+        </div>
+        <span x-text="character.extra" x-show="character.extra != null"></span>
+      </sl-card>
+    </form>
+  </sl-card>
+
+  <template x-if="characterReady($data)">
+    <article class="adg-character-display">
+      <h1>Adventurer</h1>
+      <dl>
+        <template x-for="(attribute) in ['agility', 'brawn', 'cunning']">
+          <div class="adg-dl-sxs">
+            <dt x-text="toTitleCase(attribute)"></dt>
+            <dd x-text="character[attribute]"></dd>
+          </div>
+        </template>
+        <div class="adg-dl-sxs">
+          <dt>Health</dt>
+          <dd x-text="`${character.health} HP`"></dd>
+        </div>
+        <div class="adg-dl-sxs">
+          <dt>Wealth</dt>
+          <dd x-text="`${character.wealth} SP`"></dd>
+        </div>
+        <div class="adg-dl-sxs">
+          <dt>Extra</dt>
+          <dd x-text="character.extra"></dd>
+        </div>
+        <dt class="dl-full">Scar</dt>
+        <dd class="dl-full" x-text="character.scar"></dd>
+        <template x-if="character.rituals.length > 0">
+          <dt class="dl-full">
+            Learned Rituals
+          </dt>
+        </template>
+        <template x-for="(ritual) in character.rituals">
+          <dd x-text="ritual"></dd>
+        </template>
+      </dl>
+    </article>
+  </template>
+</div>

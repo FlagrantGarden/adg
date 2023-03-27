@@ -1,0 +1,67 @@
+{{- $Params      := .                                                         -}}
+{{- $Page        := $Params.Page                                              -}}
+{{- $Position    := $Params.Position                                          -}}
+{{- $definition  := $Params.Inner                                             -}}
+{{- $type        := $Params.Type | lower                                      -}}
+{{- $Attributes  := $Params.Attributes                                        -}}
+{{- $Template    := "adg/markup/chargen/template"                             -}}
+{{- $DefaultPath := "adg.chargen.core"                                        -}}
+{{- $ConfigKey   := "platen.markup.adg_chargen"                               -}}
+{{- $Config      := partialCached "platen/param/getKey" $ConfigKey $ConfigKey -}}
+{{- $Aliases     := $Config.aliases                                           -}}
+
+{{/* Initialize the rendered code; must return empty if this isn't a chargen block */}}
+{{- $renderedCode := "" -}}
+
+{{- $validLanguageIDs := slice "adg_chargen" -}}
+{{- with $Aliases -}}
+  {{- if (reflect.IsSlice $Aliases) -}}
+    {{- $validLanguageIDs = union $validLanguageIDs $Aliases -}}
+  {{- else -}}
+    {{- $validLanguageIDs = $validLanguageIDs | append (print $Aliases) -}}
+  {{- end  -}}
+{{- end -}}
+
+{{- if in $validLanguageIDs $type -}}
+  {{/* Ensure libraries/styles get added to this page */}}
+  {{- $Params.Page.Store.Set "_hasAdgChargen" true -}}
+  {{- $Params.Page.Store.Set "_hasShoelace"   true -}}
+  {{- $Params.Page.Store.Set "_hasAlpine"     true -}}
+
+  {{/* Parse the definition for data and markdown */}}
+  {{- $infoParams := dict "Definition" $definition "SupportsData" true "SupportsMarkdown" false -}}
+  {{- $info       := partial "platen/utils/getCodeblockInfo" $infoParams                        -}}
+
+  {{/* Handle attributes and data */}}
+  {{- $class           := $info.Data.class     | default $Attributes.class -}}
+  {{- $id              := $info.Data.id        | default $Attributes.id    -}}
+  {{- $DataDotPath     := $info.Data.data_path                             -}}
+  {{- $data            := $info.Data.data                                  -}}
+
+  {{- with $DataDotPath -}}
+    {{- $DotPath := printf "adg.chargen.%s" $DataDotPath                       -}}
+    {{- $data     = partialCached "platen/utils/getDataPath" $DotPath $DotPath -}}
+  {{- else -}}
+    {{- with $data -}}
+      {{/*  Nothing to do  */}}
+    {{- else -}}
+      {{- $data = partialCached "platen/utils/getDataPath" $DefaultPath $DefaultPath -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- with $data -}}
+    {{- $SpellPath   := "adg.spells.core"                                              -}}
+    {{- $spellData   := partialCached "platen/utils/getDataPath" $SpellPath $SpellPath -}}
+    {{- $spellData    = merge $spellData (dict "types" (slice "Phrase" "Sigil" "Ceremony")) -}}
+    {{- $data         = merge $data (dict "ritualInfo" $spellData)                     -}}
+    {{- $tempRitual  := (dict "temp_ritual" (
+          dict "type" nil "descriptor" nil "noun" nil "combined" nil "alert" nil
+        ))
+    -}}
+    {{- $data         = merge $data  $tempRitual -}}
+    {{- warnf "Template Data: %s" ($data | jsonify (dict "indent" "  ")) -}}
+    {{- $renderedCode = partial $Template $data                                        -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $renderedCode -}}
