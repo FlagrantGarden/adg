@@ -44,8 +44,8 @@ After failing a roll you can choose to exert yourself in order to succeed.
 your roll. Reduce your attribute by this number permanently and treat the roll
 as a success.
 
-**If you rolled under you enemy's AC in combat:** Subtract your attribute from
-the result of your roll. Reduce your attribute by this number permanently and
+**If you rolled under you enemy's AC in combat:** Subtract the result of your
+roll from the enemy's AC. Reduce your attribute by this number permanently and
 treat the roll as a success.
 
 You can't exert yourself on Saving Throws.
