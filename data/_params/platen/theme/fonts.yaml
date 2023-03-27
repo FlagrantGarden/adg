@@ -1,1 +1,10 @@
 # yaml-language-server: $schema=https://platen.io/modules/platen/config/site/theme/config/schema.json#/properties/fonts
+settings:
+  body: 
+    family: "'Montserrat', sans-serif"
+    selector: body
+  code: 
+    family: "'Roboto Mono', monospace"
+    selector: code
+styles:
+  - import_name: montserrat
