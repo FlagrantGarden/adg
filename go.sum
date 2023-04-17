@@ -6,3 +6,9 @@ github.com/platenio/platen/modules/platen v0.0.0-20230312145105-ead2c9e49e72 h1:
 github.com/platenio/platen/modules/platen v0.0.0-20230312145105-ead2c9e49e72/go.mod h1:7pfizXCKb4vonp6Og/3zkoy09YYsHip9/hXiT/pc3IM=
 github.com/platenio/platen/modules/platen v0.0.0-20230313022014-9abf196a9a59 h1:zFYKeC67YdRkUfwpyjpw5NQLYz1X96xiKqQEOLUCY5o=
 github.com/platenio/platen/modules/platen v0.0.0-20230313022014-9abf196a9a59/go.mod h1:7pfizXCKb4vonp6Og/3zkoy09YYsHip9/hXiT/pc3IM=
+github.com/platenio/platen/modules/platen v0.0.0-20230416185311-b8460c6455cd h1:62q1cLQ4DEuzzgVI6G9Kb37QGHxk6j9tIjZ1FWKhFlk=
+github.com/platenio/platen/modules/platen v0.0.0-20230416185311-b8460c6455cd/go.mod h1:7pfizXCKb4vonp6Og/3zkoy09YYsHip9/hXiT/pc3IM=
+github.com/platenio/platen/modules/platen v0.0.0-20230529160419-88fb86b1f1b2 h1:cemZMn/8i01Rz07nzzPG+QYviKfw0nfUv0QFAz3G/aU=
+github.com/platenio/platen/modules/platen v0.0.0-20230529160419-88fb86b1f1b2/go.mod h1:7pfizXCKb4vonp6Og/3zkoy09YYsHip9/hXiT/pc3IM=
+github.com/platenio/platen/modules/platen v0.0.0-20230529185105-1940d50cd690 h1:zTFeL0ZfHJoSLtpzAgiry836US+8lDY6c4CBe2xSKgA=
+github.com/platenio/platen/modules/platen v0.0.0-20230529185105-1940d50cd690/go.mod h1:7pfizXCKb4vonp6Og/3zkoy09YYsHip9/hXiT/pc3IM=

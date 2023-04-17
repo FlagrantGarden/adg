@@ -1,1 +1,4 @@
 # yaml-language-server: $schema=https://platen.io/modules/platen/config/site/theme/variables/dark_css/schema.json
+body-background: "#00272f"
+scrollbar-track-color: "#00687d"
+scrollbar-thumb-color: "#2f0027"
