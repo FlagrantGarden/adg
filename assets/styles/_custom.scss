@@ -530,13 +530,33 @@ sl-tooltip.adg-ritual-generator {
   --sl-tooltip-arrow-size: 0;
 }
 
+sl-card.adg-party-generator {
+  width: 100%;
+  sl-button-group[label="Generator Options"] {
+    width: 100%;
+    &::part(base) {
+      justify-content: space-around;
+    }
+    sl-button[x-ref="menu_generate_party"] {
+      min-width: 8rem;
+    }
+  }
+}
+
 @media print {
-  sl-card.adg-generator {
+  sl-card.adg-generator, sl-card.adg-party-generator, div.adg-party {
     display: none;
+  }
+  sl-card.adg-party-member {
+    display: none;
+  }
+  sl-card.adg-party-member {
+    display: hidden;
   }
 
   article.adg-character-display {
     visibility: visible;
+    page-break-after: always;
 
     h1 {
       text-align: center;
@@ -546,7 +566,9 @@ sl-tooltip.adg-ritual-generator {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
+      align-content: center;
       flex-wrap: wrap;
+      width: 100%;
 
       div.adg-dl-sxs {
         flex: 1 1 auto;
@@ -570,6 +592,52 @@ sl-tooltip.adg-ritual-generator {
         width: 100%;
         text-align: center;
       }
+    }
+  }
+}
+
+sl-card.adg-party-member {
+  width: 80%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  dl {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: stretch;
+
+    div.adg-dl-sxs {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: baseline;
+
+      dt {
+        width: 5rem;
+        &:after {
+          content: ":"
+        }
+      }
+    }
+
+    dt.dl-full {
+      flex: 1 100%;
+      text-align: center;
+
+      &+dd {
+        text-align: left;
+      }
+    }
+    dd.dl-full {
+      display: block;
+      clear: both;
+      width: 100%;
+      text-align: center;
     }
   }
 }

@@ -15,6 +15,12 @@ adg_chargen:
     header: adg/markup/chargen/header
     renderers:
       codeblock: adg/markup/chargen/codeblock
+adg_partygen:
+  enabled: true
+  partials:
+    header: adg/markup/partygen/header
+    renderers:
+      codeblock: adg/markup/partygen/codeblock
 tabs:
   use_legacy: false
   warn_on_legacy: true
