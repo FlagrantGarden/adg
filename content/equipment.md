@@ -15,15 +15,16 @@ The standard unit of currency is the silver piece (sp), which may be broken into
 
 ## Melee Weapons
 
-- _Small._ 4sp. 1d6-1 damage. Ignores armour when enemies are prone.
-- _Medium._ 8sp. 1d6 damage.
-- _Large._ 12sp. 1d6 damage with advantage. +2 to initiative.
+- _Small._ 4sp. ![roll:1d6-1](. "1d6-1 damage"). Ignores armour when enemies are prone.
+- _Medium._ 8sp. ![roll:1d6](. "1d6 damage").
+- _Large._ 12sp. ![roll:2d6k1](. "1d6 damage with advantage"). +2 to initiative.
 
 ## Ranged Weapons
 
-- _Small._ 4sp. 1d6-1 damage. -2 to initiative. Reloading is a free action.
-- _Medium._ 8sp. 1d6 damage. Reloading is a move action.
-- _Large._ 12sp. 1d6 damage with advantage. Ignores armour. Reloading takes an entire round.
+- _Small._ 4sp. ![roll:1d6-1](. "1d6-1 damage"). -2 to initiative. Reloading is a free action.
+- _Medium._ 8sp. ![roll:1d6](. "1d6 damage"). Reloading is a move action.
+- _Large._ 12sp. ![roll:2d6k1](. "1d6 damage with advantage"). Ignores armour. Reloading takes an
+  entire round.
 
 ## Armour and Shields
 
@@ -44,9 +45,9 @@ player with a light makes a light check by rolling the source's light dice. If t
 greater than 4, increase the number of dice for the next check. The GM may decide to make this
 check in place of the players.
 
-- Candle, 3d6. _1cp_
-- Torch, 2d6. _1sp_
-- Lantern, 1d6. _7sp_
+- Candle, ![roll:3d6](). _1cp_
+- Torch, ![roll:2d6](). _1sp_
+- Lantern, ![roll:1d6](). _7sp_
 
 When the light source is threatened by wind or moisture, add an additional die to the roll. If you
 fail it goes out, regardless of the number of dice being used.

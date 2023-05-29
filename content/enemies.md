@@ -5,14 +5,14 @@ weight: 70
 
 Enemies have HDd6 health. When their health reaches 0 they are dead.
 
-Enemy attacks do 1d6 damage unless noted otherwise. When they roll exactly their Attack, their
-damage is doubled.
+Enemy attacks do ![roll:1d6]() damage unless noted otherwise. When they roll exactly their Attack,
+their damage is doubled.
 
 Enemy Attack is equal to 11+HD. Enemies of HD 9 or greater only miss when they roll under their
 target's AC. Damage is doubled on a roll of 20.
 
-Enemies make saving throws by rolling under 10 + HD on 1d20. Rolling exactly their number means
-they are immune to that effect for the rest of the encounter.
+Enemies make saving throws by rolling under 10 + HD on ![roll:1d20](). Rolling exactly their number
+means they are immune to that effect for the rest of the encounter.
 
 Enemies of HD 1-3 have one attack per Round, HD 4-7 have two attacks, HD 8-11 have three, and HD
 12+ have four.

@@ -59,8 +59,7 @@
         ))
     -}}
     {{- $data         = merge $data  $tempRitual -}}
-    {{- warnf "Template Data: %s" ($data | jsonify (dict "indent" "  ")) -}}
-    {{- $renderedCode = partial $Template $data                                        -}}
+    {{- $renderedCode = partial $Template $data  -}}
   {{- end -}}
 {{- end -}}
 

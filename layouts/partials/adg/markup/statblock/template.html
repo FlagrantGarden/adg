@@ -7,7 +7,16 @@
 {{- else -}}
     {{- $stats = $Data -}}
 {{- end -}}
-{{- $ID := $stats.name | urlize | safeHTMLAttr }}
+{{- with $appearing := $stats.appearing -}}
+    {{- if in $appearing "d" -}}
+        {{- $appearing = printf "![roll:%s](preset:adg_statblock)" $appearing | markdownify -}}
+    {{- else -}}
+        {{- $appearing = printf "<span>%v</span>" $appearing -}}
+    {{- end -}}
+    {{- $stats = merge $stats (dict "appearing" $appearing) -}}
+{{- end -}}
+{{- $ID := $stats.name | urlize | safeHTMLAttr -}}
+
 <sl-card class="adg-statblock" >
     <div slot="header">
         <h{{ print $level | safeHTML }} id="{{ $ID }}">{{ $stats.name }}</h3>
@@ -20,7 +29,7 @@
     </div>
     {{ $stats.description | page.RenderString (dict "display" "block") -}}
     <dl slot="footer">
-        <dt>No. Appearing</dt>
-        <dd>{{ $stats.appearing }}</dd>
+        <dt><span>No. Appearing</span></dt>
+        <dd>{{ $stats.appearing | safeHTML }}</dd>
     </dl>
 </sl-card>

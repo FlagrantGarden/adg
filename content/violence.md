@@ -3,7 +3,7 @@ title: Violence
 weight: 50
 ---
 
-You're made of meat and when people poke holes in you you bleed and die. If you're going to fight
+You're made of meat and when people poke holes in you, you bleed and die. If you're going to fight
 you have to be prepared for it to be to the death, and you should be sure you're going to win
 before you draw your blade.
 
@@ -13,8 +13,8 @@ When you attack something, pick which attribute you're using. Unless you can com
 reason why it should be different, use Agility for ranged attacks, Brawn for melee attacks, and
 Cunning if there's magic or trickery involved.
 
-Roll 1d20. If your result is less than or equal to your attribute and above their Armour Class
-(AC), you hit them. Roll your weapon's damage.
+Roll ![roll:1d20](). If your result is less than or equal to your attribute and above their Armour
+Class (AC), you hit them. Roll your weapon's damage.
 
 If your result is either higher than your attribute or equal to or lower than your enemy's AC, you
 miss.
@@ -45,9 +45,9 @@ health in Xd6 Rounds, where X is the number of Scars you have accrued.
 
 ## Combat Rounds
 
-At the start of combat, each character involved makes an initiative roll by rolling 1d20 versus
-their Agility. Characters who roll under their Agility act before enemies. Those who fail act after
-enemies.
+At the start of combat, each character involved makes an initiative roll by rolling ![roll:1d20]()
+versus their Agility. Characters who roll under their Agility act before enemies. Those who fail
+act after enemies.
 
 Characters who roll their Agility exactly may make one quick action before combat commences -
 readying a weapon, quaffing a potion, etc.
@@ -58,8 +58,8 @@ Accessing items in your pack during combat requires a Cunning check to quickly l
 Passing the check means that it takes your action on your initiative to locate the item, which may
 be used the next Round. Rolling your Cunning exactly means that you can use the item on the same
 initiative Round that you retrieved it. Characters failing this check can't quickly locate the item
-and must either forgo retrieving it or spend 1d3 Rounds searching for it while unable to take other
-actions.
+and must either forgo retrieving it or spend ![roll:1d3]() Rounds searching for it while unable to
+take other actions.
 
 ## Rituals in Combat
 
@@ -76,21 +76,25 @@ When enemies are encountered in the dungeon, the fiction will tell you whether o
 the other. If one side is surprised and combat begins, the surprised party takes no actions in the
 first combat Round.
 
-If not made obvious by the fiction, encounters in the dungeon occur at 2d6 x 10 feet. Encounters
-outside occur at 2d6 x 10 yards.
+If not made obvious by the fiction, encounters in the dungeon occur at [!roll:2d6*10](. "2d6 x 10
+feet"). Encounters outside occur at ![roll:2d6*10](. "2d6 x 10 yards").
 
 ## Reactions
 
 Roll to determine the initial attitude of any enemy whose reaction to the adventurers isn't obvious
 from the fiction.
 
-|  2d6  |   Reaction    |
-| :---: | :-----------: |
-|  2-3  |   Friendly.   |
-|  4-6  |   Helpful.    |
-|   7   | Uninterested. |
-| 8-10  |   Hostile.    |
-| 11-12 |  Murderous.   |
+```roll-table
+roll: 2d6
+result_text: >-
+  Rolled {{ roll }} - their attitude is {{ result }}.
+results:
+  2--3:   Friendly
+  4--6:   Helpful
+  7:      Uninterested
+  8--10:  Hostile
+  11--12: Murderous
+```
 
 ## Morale
 
@@ -106,9 +110,9 @@ enemy response to violence isn't clear from the fiction, make a Morale check for
   should also occur at the end of the first Round in which half of the group is slain, and for
   every subsequent Round in which one of them dies.
 
-To test Morale, roll 1d20 under 10 + the enemy's HD. If they are successful, they continue to
-fight. If they fail, they flee or surrender at the first opportunity. Enemies who flee may regroup
-and strike again, lay ambushes, pursue the adventurers, or simply hold a grudge.
+To test Morale, roll ![roll:1d20]() under 10 + the enemy's HD. If they are successful, they
+continue to fight. If they fail, they flee or surrender at the first opportunity. Enemies who flee
+may regroup and strike again, lay ambushes, pursue the adventurers, or simply hold a grudge.
 
 Enemies who roll exactly 10 + their HD on a Morale test rally themselves. They gain an additional
 attack in the next combat Round, and don't test Morale again during the encounter.
@@ -119,7 +123,7 @@ Hirelings who find themselves in combat are likely to break and flee. At the end
 in which a hireling takes damage or witnesses a member of the party die, the adventurer who hired
 them must test their Morale.
 
-To test Hireling Morale, roll under your Cunning but over the Hireling's HD on a d20.
+To test Hireling Morale, roll under your Cunning but over the Hireling's HD on a ![roll:d20]().
 
 - On a success, the hireling's morale holds.
 - On a failure, the hireling flees and cannot be hired again.
@@ -135,9 +139,9 @@ Time in the dungeon is measured in exploration turns (Turns) and combat rounds (
 An exploration Turn is approximately ten minutes. This is enough time to search a single room,
 traverse a corridor, take a short rest, perform an attribute check, or the like.
 
-Check for random encounters after every Turn by rolling 1d6. On a 1, an encounter occurs. In less
-populated areas of the dungeon you may wish to change this frequency, lowering checks to every
-other Turn or even every third Turn.
+Check for random encounters after every Turn by rolling ![roll:1d6](). On a 1, an encounter occurs.
+In less populated areas of the dungeon you may wish to change this frequency, lowering checks to
+every other Turn or even every third Turn.
 
 Combat is measured in Rounds. Each Round is approximately one minute in game time. Characters have
 enough time to traverse a normal-sized room and take an action - ready a weapon, retrieve something

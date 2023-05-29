@@ -1,0 +1,7 @@
+button:
+  pill: true
+  variant: text
+  outline: true
+tooltip:
+  placement: right
+result_text_template: "{{ result.sum }} appear"

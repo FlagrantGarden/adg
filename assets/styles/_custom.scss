@@ -1,3 +1,8 @@
+$adg-bg-color: #e3e9f7;
+$adg-link-color: #00272f;
+$adg-table-header-bg-color: #00272f;
+$adg-table-alt-row-bg-color: #f2f2f2;
+
 .platen-brand {
 
   // Make the title logo visible and obvious
@@ -14,28 +19,32 @@ div.platen-menu-content nav>ul:not([class^="platen"]) {
   margin-top: 2.5em;
 }
 
-ul.columns,
-ol.columns {
-  -moz-column-count: 2;
-  -moz-column-gap: 2rem;
-  -moz-column-width: 8em;
-  -webkit-column-count: 2;
-  -webkit-column-gap: 2rem;
-  -webkit-column-width: 8em;
-  column-count: 2;
-  column-gap: 2rem;
-  column-width: 8em;
-
-  &.count-3 {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
+// Style the scrollbars
+html {
+  scrollbar-color: var(--scrollbar-track-color) var(scrollbar-thumb-color);
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
   }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+  }
+}
 
-  &.count-4 {
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
+.markdown {
+  // Style the tables
+  table {
+    tr th, tr td {
+      border: none;
+    }
+    tr th {
+      border-bottom: $padding-small solid var(--gray-200);
+    }
+  }
+}
+
+sl-button[variant="text"] {
+  &::part(label) {
+    color: var(--sl-color-emerald-700);
   }
 }
 
@@ -494,75 +503,26 @@ sl-card.adg-statblock {
 
     dt,
     dd {
+      display: flex;
+      align-items: center;
       margin: 0;
       padding: 0 1em;
+      height: var(--sl-input-height-medium);
     }
 
-    dt:after {
-      content: ":";
+    dt {
+      span:after {
+        content: ":";
+      }
     }
 
     display: flex;
-    align-items: left;
+    align-items: center;
+    justify-items: flex-start;
     padding-top: 0;
     padding-bottom: 0;
     padding-right: 0;
     margin: 0;
-  }
-}
-
-.markdown table.sticky {
-  width: max-content;
-  height: 22rem;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  table-layout: fixed;
-  margin: auto;
-  @include outline;
-
-  thead {
-    width: 100%;
-    background: var(--body-background);
-    position: sticky;
-    inset-block-start: 0;
-
-    /* "top" */
-    tr {
-      width: 100%;
-
-      th:nth-child(odd) {
-        width: 75%;
-      }
-
-      th:nth-child(even) {
-        width: 25%;
-      }
-    }
-  }
-
-  tbody {
-    width: 100%;
-  }
-
-
-  /* Foreground, Background */
-  scrollbar-color: #999 #333;
-
-  &::-webkit-scrollbar {
-    width: 10px;
-    /* Mostly for vertical scrollbars */
-    height: 10px;
-    /* Mostly for horizontal scrollbars */
-  }
-
-  &::-webkit-scrollbar-thumb {
-    /* Foreground */
-    background: #999;
-  }
-
-  &::-webkit-scrollbar-track {
-    /* Background */
-    background: #333;
   }
 }
 
@@ -603,6 +563,12 @@ sl-tooltip.adg-ritual-generator {
         &+dd {
           text-align: left;
         }
+      }
+      dd.dl-full {
+        display: block;
+        clear: both;
+        width: 100%;
+        text-align: center;
       }
     }
   }
