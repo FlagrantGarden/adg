@@ -1,0 +1,5 @@
+button:
+  pill: true
+  variant: default
+  placement: below
+  label: Roll on the table
