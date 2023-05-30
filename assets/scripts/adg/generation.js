@@ -54,10 +54,7 @@ function addExtraRitual(data, refs) {
     data.character.rituals.push(data.temp_ritual.combined)
     let extra_text = `Learned the ${data.temp_ritual.combined} without paying any cost.`
 
-    data.temp_ritual.combined = null
-    data.temp_ritual.type = null
-    data.temp_ritual.descriptor = null
-    data.temp_ritual.noun = null
+    resetTempRitual(data)
 
     return extra_text
 }
@@ -145,10 +142,7 @@ async function payRitualCost(data, refs, from) {
         alert.toast();
         refs.ritualDrawer.hide()
     }
-    data.temp_ritual.combined = null
-    data.temp_ritual.type = null
-    data.temp_ritual.descriptor = null
-    data.temp_ritual.noun = null
+    resetTempRitual(data)
 }
 
 function checkRitualDeath(character) {
@@ -356,12 +350,109 @@ function generateCharacter(data, refs) {
             if (checkRitualDeath(data.character) != '') {
                 refs.ritual_death_dialog.show()
             }
-            data.temp_ritual.combined = null
-            data.temp_ritual.type = null
-            data.temp_ritual.descriptor = null
-            data.temp_ritual.noun = null
+            resetTempRitual(data)
         }
     }
 
     rollExtra(data, refs)
+}
+
+function generatePartyMember(data, partyMember) {
+    partyMember.agility    = rollDice(3, 6)
+    partyMember.brawn      = rollDice(3, 6)
+    partyMember.cunning    = rollDice(3, 6)
+    partyMember.health     = Math.floor(partyMember.brawn * 0.5) + rollDie(6)
+    partyMember.wealth     = rollDice(2, 6) * 10
+    partyMember.occupation = randomItem(data.occupations)
+    partyMember.scar       = randomItem(data.scars).description
+    partyMember.pronouns   = randomItem(data.pronouns)
+
+    let learnCount = 0
+    if (rollDie(6) > 3) {
+        learnCount = rollDie(6) - 1
+    }
+    if (learnCount > 0) {
+        for (learnCount; learnCount > 0; learnCount--) {
+            let from = randomItem(['agility', 'brawn', 'cunning', 'health'])
+            newRitual(data.temp_ritual, data.ritualInfo)
+            data.temp_ritual.cost = rollDie(3)
+            data.temp_ritual.from = toTitleCase(from)
+            partyMember.rituals.push(data.temp_ritual.combined)
+            partyMember[from] = partyMember[from] - data.temp_ritual.cost
+            // refs[`input_${from}`].value = data.character[from]
+            resetTempRitual(data)
+            if (checkRitualDeath(partyMember) != '') {
+                generatePartyMember(data, partyMember)
+            }
+        }
+    }
+
+    let extraRoll = rollDice(2, 6)
+    let extra = data.extras.find(e => e.roll == extraRoll)
+    if (extra?.text) {
+        partyMember.extra = extra.text
+    } else if (extra?.update) {
+        if (extra?.modifier_roll) {
+            modifier = rollString(extra.modifier_roll)
+            partyMember[extra.update] += modifier
+            partyMember.extra = `Modified ${toTitleCase(extra.update)} by ${extra.modifier_roll} (${modifier})`
+        } else if (extra?.function) {
+            if (extra.function == 'addExtraRitual') {
+                newRitual(data.temp_ritual, data.ritualInfo)
+                partyMember.rituals.push(data.temp_ritual.combined)
+                let extra_text = `Learned the ${data.temp_ritual.combined} without paying any cost.`
+
+                resetTempRitual(data)
+            } else {
+                partyMember.extra = window[extra.function](data)
+            }
+        } else {
+            console.error('Invalid extra, update defined without modifier_roll or function', extra)
+        }
+    } else {
+        console.error("Invalid extra, missing text and update keys", extra)
+    }
+}
+
+function generateParty(data) {
+    members = data.party.map(member => {
+        member = resetPartyMember(member)
+        
+        return generatePartyMember(data, member)
+    })
+}
+
+function partyReady(data) {
+    let ready = true
+    data.party.forEach(member => {
+        if (member.agility == null) ready = false
+    })
+    return ready
+}
+
+function resetPartyMember(member) {
+    member.name       = "Adventurer"
+    member.pronouns   = null
+    member.brawn      = null
+    member.agility    = null
+    member.cunning    = null
+    member.health     = null
+    member.wealth     = null
+    member.occupation = null
+    member.scar       = null
+    member.rituals    = []
+    member.extra      = null
+
+    return member
+}
+
+function resetTempRitual(data) {
+    data.temp_ritual.combined   = null
+    data.temp_ritual.type       = null
+    data.temp_ritual.descriptor = null
+    data.temp_ritual.noun       = null
+}
+
+function resetParty(data) {
+    data.party = data.party.map(member => resetPartyMember(member))
 }

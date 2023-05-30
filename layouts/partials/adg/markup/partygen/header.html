@@ -1,6 +1,6 @@
 {{- $Context          := .                                     -}}
 {{- $IntegrityPartial := "platen/utils/getIntegrityAttributes" -}}
-{{- $loadChargen      := $Context.Store.Get "_hasAdgChargen"   -}}
+{{- $loadChargen      := $Context.Store.Get "_hasAdgPartyGen"   -}}
 
 {{- if $loadChargen -}}
   {{/* Initialize the slice of strings to render */}}
@@ -10,7 +10,7 @@
   {{- $library           := resources.Get "scripts/adg/generation.js"
       | resources.Fingerprint
   -}}
-  {{- $libraryIntegrity  := partialCached $IntegrityPartial $library "AdgChargen" -}}
+  {{- $libraryIntegrity  := partialCached $IntegrityPartial $library "AdgPartygen" -}}
   {{- $libraryAttributes := slice (printf `src="%s"` $library.RelPermalink)
       | append $libraryIntegrity
   -}}

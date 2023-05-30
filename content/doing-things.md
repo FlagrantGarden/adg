@@ -21,8 +21,8 @@ wouldn't be interesting or risky, you just do it.
 If you lack the skills or tools to do something, or if success is otherwise impossible, you cannot
 succeed. Find another plan.
 
-To do things, decide which attribute you are using and roll under it on a d20. If you roll your
-attribute exactly you do it really well.
+To do things, decide which attribute you are using and roll under it on a ![roll:d20](). If you
+roll your attribute exactly you do it really well.
 
 If you're particularly well positioned to do the thing well, roll with Advantage: roll two dice and
 take the best result. If things are going poorly for you and it's going to be harder than normal,
@@ -31,7 +31,7 @@ Disadvantage works the same way but you take the worst result.
 ## Saving Throws
 
 Saving throws made against traps and natural hazards use the same procedure as attribute checks,
-rolling under the most appropriate attribute on 1d20.
+rolling under the most appropriate attribute on ![roll:1d20]().
 
 To makes a saving throw against creature abilities or spells and effects caused by enemies, roll
 under the appropriate attribute but over the enemy's HD.

@@ -4,7 +4,7 @@
 {{- $definition  := $Params.Inner                                             -}}
 {{- $type        := $Params.Type | lower                                      -}}
 {{- $Attributes  := $Params.Attributes                                        -}}
-{{- $Template    := "adg/markup/chargen/template"                             -}}
+{{- $Template    := "adg/markup/partygen/template"                            -}}
 {{- $DefaultPath := "adg.chargen.core"                                        -}}
 {{- $ConfigKey   := "platen.markup.adg_chargen"                               -}}
 {{- $Config      := partialCached "platen/param/getKey" $ConfigKey $ConfigKey -}}
@@ -13,7 +13,7 @@
 {{/* Initialize the rendered code; must return empty if this isn't a chargen block */}}
 {{- $renderedCode := "" -}}
 
-{{- $validLanguageIDs := slice "adg_chargen" -}}
+{{- $validLanguageIDs := slice "adg_partygen" -}}
 {{- with $Aliases -}}
   {{- if (reflect.IsSlice $Aliases) -}}
     {{- $validLanguageIDs = union $validLanguageIDs $Aliases -}}
@@ -24,9 +24,9 @@
 
 {{- if in $validLanguageIDs $type -}}
   {{/* Ensure libraries/styles get added to this page */}}
-  {{- $Params.Page.Store.Set "_hasAdgChargen" true -}}
-  {{- $Params.Page.Store.Set "_hasShoelace"   true -}}
-  {{- $Params.Page.Store.Set "_hasAlpine"     true -}}
+  {{- $Params.Page.Store.Set "_hasAdgPartyGen" true -}}
+  {{- $Params.Page.Store.Set "_hasShoelace"    true -}}
+  {{- $Params.Page.Store.Set "_hasAlpine"      true -}}
 
   {{/* Parse the definition for data and markdown */}}
   {{- $infoParams := dict "Definition" $definition "SupportsData" true "SupportsMarkdown" false -}}

@@ -5,7 +5,7 @@
 {{- $type       := $Params.Type | lower                                      -}}
 {{- $Attributes := $Params.Attributes                                        -}}
 {{- $Template   := "adg/markup/statblock/template"                           -}}
-{{- $ConfigKey  := "platen.markup.adg_statblock"                             -}}
+{{- $ConfigKey  := "platen.markup.adg_stat_block"                            -}}
 {{- $Config     := partialCached "platen/param/getKey" $ConfigKey $ConfigKey -}}
 {{- $Aliases    := $Config.aliases                                           -}}
 
